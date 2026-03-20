@@ -171,7 +171,7 @@ class EstructuraDatos {
                 for(int i = 1; i <= numf; i++){
                     factorial *= i;
                 }
-
+                System.out.println("El factorial de " + numf + " es: " + factorial);
                 break;
 
             case 9:
@@ -190,9 +190,62 @@ class EstructuraDatos {
                     System.out.println("Porfavor ingrese solo valores entre 1 y 20");
                     }
                     break;
-                default: 
-                   break;
-            }
+
+            case 10:
+                System.out.println("Vamos a realizar el dibujo de un cuadrado hueco");
+                int th = entrada.nextInt();
+                for (int i = 0; i < th; i++) {
+                    for (int j = 0; j < th; j++) {
+                        if (i == 0 || i == th - 1 || j == 0 || j == th - 1)
+                            System.out.print(" * ");
+                        else
+                            System.out.print("   ");
+                    }
+                    System.out.println();
+                }
+                break;
+
+                case 11:
+                    System.out.println("Vamos a realizar el dibujo de un diamante");
+                    System.out.println("Ingrese el tamaño del diamante");
+                    int td = entrada.nextInt();
+                    for (int i = 1; i < td; i++) {
+                        for (int j = i; j < td; j++) System.out.print(" ");
+                        for (int j = 1; j <= (2 * i - 1); j++) System.out.print("*");
+                        System.out.println();
+                    }
+                    break;
+
+                case 12:
+                    System.out.println("Bienvenido a esta hermosa calculadora");
+                    System.out.println("Ingrese la cantidad de numeros que desea operar");
+                    int cn = entrada.nextInt();
+                    System.out.println("Ingrese el primer numero");
+                    double resultado = entrada.nextDouble();
+
+                    for(int i = 1; i < cn; i++){
+                        System.out.println("Ingrese el operador que desea usar (+,-,*,/)");
+                        char op = entrada.next().charAt(0);
+                        System.out.println("Ingrese el siguiente numero");
+                        double num2 = entrada.nextDouble();
+
+                        switch (op) {
+                            case '+' -> resultado += num2;
+                            case '-' -> resultado -= num2; 
+                            case '*' -> resultado *= num2;
+                            case '/' -> resultado /= num2;
+                        
+                        }
+                    }
+
+                System.out.println("El resultado de la operacion es: " + resultado);
+                    break;
+
+                    case 13:
+                        System.out.println("Gracias por probar mi intento de programa)");
+                        break;
+
+                }
             System.out.println("Desea repetir el programa? escribe s o S para si");
             letrapararepetir = entrada.next().charAt(0);
             } while (letrapararepetir != 's' || letrapararepetir == 'S');
