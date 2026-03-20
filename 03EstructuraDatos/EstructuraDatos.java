@@ -4,34 +4,41 @@ class EstructuraDatos {
     public static void main(String[] args) {
         int opcion;
         char letrapararepetir;
-        float compra = 0;
+        float total = 0;
         Scanner entrada = new Scanner(System.in);
 
         do{
         System.out.println("Bienvenido a este programa para verificar que tanto saben programar apartir de algoritmosbasicos.");
         System.out.println("Porfavor elija la opcion deseada");
-        System.out.println("1.-");
-        System.out.println("2.-");
-        System.out.println("3.-");
-        System.out.println("4.-");
-        System.out.println("5.-");
-        System.out.println("6.-");
-        System.out.println("7.-");
-        System.out.println("8.-");
-        System.out.println("9.-");
-        System.out.println("10.-");
-        System.out.println("11.-");
-        System.out.println("12.-");
-        System.out.println("13.-");
-        System.out.println("14.- Salir");
+        System.out.println("1.- Bono por edad");
+        System.out.println("2.- Convertir un numero a binario");
+        System.out.println("3.- Convertir temperaturas");
+        System.out.println("4.- Contar positivos y negativos");
+        System.out.println("5.- Tiendita");
+        System.out.println("6.- Area y perimetro");
+        System.out.println("7.- Tabla de multiplicar");
+        System.out.println("8.- Factorial");
+        System.out.println("9.- Cuadrado magico");
+        System.out.println("10.- Cuadrado hueco");
+        System.out.println("11.- Diamante");
+        System.out.println("12.- Caluladora");
+        System.out.println("13.- Salir");
 
         opcion = entrada.nextInt();
 
         switch (opcion) {
-            case 1:
-
-                break;
-            case 2:
+        case 1:
+            System.out.println("Ingrese su edad");
+            int edad = entrada.nextInt();
+            if(edad >= 60){
+                System.out.println("Tiene un bono de 30%");
+            } else if(edad >= 30){
+                System.out.println("Tiene un bono del 10%");
+            } else {
+                System.out.println("No tiene bono");
+            }
+            break;
+        case 2:
             System.out.println("Ingrese un numero positivo entero que se desee convertir a binario");
             int numbinario;
             String guardarbinario = "";
@@ -55,52 +62,116 @@ class EstructuraDatos {
         System.out.println("El numero convertido a binario es: " + guardarbinario);
             break;
         case 3:
-
+            System.out.println("Ingrese temperatura en celsius:");
+            double c = entrada.nextDouble();
+            double f = (c * 9/5) + 32;
+            double k = c + 273.15;
+            System.out.println("La temperatura en Fahrenheit es: " + f);
+            System.out.println("La temperatura en Kelvin es: " + k);
             break;
         case 4:
-
+            int positivos = 0, negativos = 0;
+            System.out.println("Cuantos numeros desea ingresar?");
+            int n = entrada.nextInt();
+            for(int i = 0; i < n; i++){
+                int x = entrada.nextInt();
+                if(x >= 0) positivos++;
+                else negativos++;
+            }
+            System.out.println("Positivos: " + positivos);
+            System.out.println("Negativos: " + negativos);
             break;
 
         case 5:
             System.out.println("Bienvenido a esta hermosa tienda");
             System.out.println("Porfavor ingrese cunatos elementos va a comprar");
-            int elementosproducto = 0;
-            elementosproducto = entrada.nextInt(); 
+            int elementosproducto = entrada.nextInt(); 
             if(elementosproducto > 0){
-                for(int i = 1; i <= elementosproducto; i++){
+                for(int i = 0; i <= elementosproducto; i++){
+                    System.out.println("Ingrese el nombre del producto");
+
                     System.out.println("Ingrese el precio");
-                    float precio = 0;
-                    precio = entrada.nextFloat();
-                    float resultado;
-                    System.out.println("Ingrese la cantidad de producto");
-                    int cantidad = 0;
-                    cantidad = entrada.nextInt();
-                    resultado = precio * cantidad;
-                    
-                    compra = resultado + compra;
+                    float precio = entrada.nextFloat();
+
+                    System.out.println("Ingrese la cantidad de productos");
+                    int cantidad = entrada.nextInt();
+
+                    total = precio * cantidad;
 
                 }
-                System.out.println("El total de su compra es: " + compra);
+                System.out.println("El total de su compra es: " + total);
 
             } else {
                 System.out.println("Ingrese solo cantidades positivas");
             }
             break;
             
-        default:
-            break;
-            case 6:
-                break;
-
-            case 7:
-                for (int n = 1; n <= 10; n++) {
-                    System.out.println(
-                        "|" + n + "| " +
-                    (n*10 + (n*100)) + "" + (n*1000));
-                    break;
+        case 6:
+            System.out.println("1.- Cuadrado");
+            System.out.println("2.- Rectangulo");
+            System.out.println("3.- Triangulo");
+            System.out.println("4.- Trapecio");
+            System.out.println("5.- Circulo");
+            int figura = entrada.nextInt();
+            switch (figura) {
+                case 1 -> {
+                    System.out.println("Ingrese el lado del cuadrado");
+                    double lado = entrada.nextDouble();
+                    System.out.println("El area del cuadrado es de: " + (lado*lado));
+                    System.out.println("El perimetro del cuadrado es de: " + (4*lado));
                 }
-            
+                case 2 -> {
+                    System.out.println("Ingrese la base del rectangulo");
+                    double baserec = entrada.nextDouble();
+                    System.out.println("Ingrese la altura del rectangulo");
+                    double altura = entrada.nextDouble();
+                    System.out.println("El area del rectangulo es de: " + (baserec*altura));
+                    System.out.println("El perimetro del rectangulo es de: " + (2*(baserec+altura)));
+                }
+                case 3 -> {
+                    System.out.println("Ingrese la base del triangulo");
+                    double basetri = entrada.nextDouble();
+                    System.out.println("Ingrese la altura del triangulo");
+                    double alturatri = entrada.nextDouble();
+                    System.out.println("El area del triangulo es de: " + ((basetri*alturatri)/2));
+                    System.out.println("El perimetro del triangulo es de: " + (basetri*3));
+                }
+                case 4 -> {
+                    System.out.println("Ingrese la base mayor del trapecio");
+                    double basemayor = entrada.nextDouble();
+                    System.out.println("Ingrese la base menor del trapecio");
+                    double basemenor = entrada.nextDouble();
+                    System.out.println("Ingrese la altura del trapecio");
+                    double alturatrap = entrada.nextDouble();
+                    System.out.println("El area del trapecio es de: " + (((basemayor+basemenor)*alturatrap)/2));
+                    System.out.println("El perimetro del trapecio es de: " + (basemayor+basemenor+(2*alturatrap)));
+                }
+                case 5 -> {
+                    System.out.println("Ingrese el radio del circulo");
+                    double radio = entrada.nextDouble();
+                    System.out.println("El area del circulo es de: " + (Math.PI*(radio*radio)));
+                    System.out.println("El perimetro del circulo es de: " + (2*Math.PI*radio));
+                }
+                default -> System.out.println("Ingrese solo numeros entre 1 y 5");
+            }
+            break;
+
+
+
+        case 7:
+                for (int i = 1; i <= 10; i++) {
+                    System.out.println(
+                        "| " + i + " | " + (i*10+ " "+(i*100)+ " "+(i*1000)));
+                }
+    
             case 8:
+                System.out.println("Ingrese un numero para calcular su factorial");
+                int numf = entrada.nextInt();
+                int factorial = 1;
+                for(int i = 1; i <= numf; i++){
+                    factorial *= i;
+                }
+
                 break;
 
             case 9:
@@ -111,19 +182,19 @@ class EstructuraDatos {
                 if(n1 >= 1 && n1 <= 20){
                     for(int i = 1; i <= n1; i++){
                         for(int j = 1; j <= n1; j++){
-                            System.out.print("* ");
+                            System.out.print(" * ");
                         }
                         System.out.println("");
                     }
-                    
-                break;
-
-
-        }
-        System.out.println("Desea repetir el programa? escribe s o S para si");
-        letrapararepetir = entrada.next().charAt(0);
-        } while (letrapararepetir != 's' || letrapararepetir == 'S');
-            
-    
-    }
+                } else {
+                    System.out.println("Porfavor ingrese solo valores entre 1 y 20");
+                    }
+                    break;
+                default: 
+                   break;
+            }
+            System.out.println("Desea repetir el programa? escribe s o S para si");
+            letrapararepetir = entrada.next().charAt(0);
+            } while (letrapararepetir != 's' || letrapararepetir == 'S');
+    }                      
 }
