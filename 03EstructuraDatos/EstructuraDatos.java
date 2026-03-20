@@ -228,13 +228,14 @@ class EstructuraDatos {
                         char op = entrada.next().charAt(0);
                         System.out.println("Ingrese el siguiente numero");
                         double num2 = entrada.nextDouble();
+                        
 
                         switch (op) {
                             case '+' -> resultado += num2;
                             case '-' -> resultado -= num2; 
                             case '*' -> resultado *= num2;
                             case '/' -> resultado /= num2;
-                        
+                            default -> System.out.println("Ingrese solo operadores validos");
                         }
                     }
 
@@ -248,6 +249,6 @@ class EstructuraDatos {
                 }
             System.out.println("Desea repetir el programa? escribe s o S para si");
             letrapararepetir = entrada.next().charAt(0);
-            } while (letrapararepetir != 's' || letrapararepetir == 'S');
+            } while (letrapararepetir == 's' || letrapararepetir == 'S');
     }                      
 }
