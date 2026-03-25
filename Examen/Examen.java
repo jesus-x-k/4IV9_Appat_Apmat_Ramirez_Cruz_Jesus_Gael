@@ -50,6 +50,11 @@ public class Examen {
 
 
                 case 3:
+
+                    if (nombre.equals("") || apellidopaterno.equals("")) {
+                        System.out.println("Primero ingrese sus datos");
+                        break;
+                    }
                     total = 0;
 
                     do {
@@ -103,6 +108,12 @@ public class Examen {
                 
 
                 case 4:
+
+                    if (nombre.equals("") || apellidopaterno.equals("")) {
+                        System.out.println("Primero ingrese sus datos");
+                        break;
+                    }
+                    
                     if (total == 0) {
                         System.out.println("No se han ingresado datos de los cuartos");
                         break;
