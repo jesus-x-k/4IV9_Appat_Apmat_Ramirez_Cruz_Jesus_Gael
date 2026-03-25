@@ -6,6 +6,8 @@ public class Examen {
         String nombre = "", apellidopaterno = "", apellidomaterno = "",fechanacimiento = "", direccion = "";
 
         int cuartos = 0;
+        double total = 0;
+        int opcion = 0;
 
         do { 
             System.out.println("Menu");
@@ -54,8 +56,87 @@ public class Examen {
                         cuartos = sc.nextInt();
                     } while (cuartos <= 1 || cuartos >= 5);
                     for (int i = 1; i <= cuartos; i++) {
-                        System.out.print(" 
+                        System.out.print("Cuarto" + i + "");
 
-        } 
+                        System.out.print("Largo: ");
+                        double largo = sc.nextDouble();
+
+                        System.out.print("Ancho: ");
+                        double ancho = sc.nextDouble();
+
+                        double area = largo * ancho;
+
+                        System.out.println("Tipo de piso: ");
+                        System.out.println("1. Porcelanato");
+                        System.out.println("2. Marmoleado");
+                        System.out.println("3. Acrilico");
+                        int tipo = sc.nextInt();
+                        double precio = 0;
+                        String nombrePiso = "";
+
+                    switch (tipo) {
+                            case 1:
+                                precio = 22.35;
+                                nombrePiso = "Porcelanato";
+                                break;
+                            case 2:
+                                precio = 34.27;
+                                nombrePiso = "Marmoleado";
+                                break;
+                            case 3:
+                                precio = 22.94;
+                                nombrePiso = "Acrilico";
+                                break;
+                            default:
+                                System.out.println("Opcion no valida");
+                        }
+                        
+                        double costo = area * precio;
+                        total += costo;
+
+                        System.out.println("Costo del cuarto: $" + costo);
+                    }
+                    break;
+                
+
+                case 4:
+                    if (total == 0) {
+                        System.out.println("No se han ingresado datos de los cuartos");
+                        break;
+                    }
+
+                    double iva = total * 0.16;
+                    double totalConIva = total + iva;
+
+                    System.out.println("Resumen");
+                    System.out.println("Cliente: " + nombre + " " + apellidopaterno + " " + apellidomaterno);
+                    System.out.println("Fecha de Nacimiento: " + fechanacimiento);
+                    System.out.println("Direccion: " + direccion);
+                    System.out.println("Total sin IVA: $" + total);
+                    System.out.println("IVA: $" + iva);
+                    System.out.println("Total con IVA: $" + totalConIva);
+
+                    System.out.print("Desea realizar la compra? (s/n): ");
+                    char r = sc.next().charAt(0);
+
+                    if (r == 's' || r == 'S') {
+                        double descuento = totalConIva * 0.0795;
+                        double totalFinal = totalConIva - descuento;
+                        System.out.println("Descuento: $" + descuento);
+                        System.out.println("Total a pagar: $" + totalFinal);
+                    } else {
+                        System.out.println("Compra cancelada");
+                    }
+                    break;
+                
+
+                case 5:
+                    System.out.println("Saliendo");
+                    break;
+                default:
+                    System.out.println("Opcion no valida");
+            }
+        } while (opcion != 5);
+        sc.close();
     }
 }
