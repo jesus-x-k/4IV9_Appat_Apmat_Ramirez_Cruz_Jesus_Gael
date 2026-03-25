@@ -7,7 +7,8 @@ public class Examen {
 
         int cuartos = 0;
         double total = 0;
-        int opcion = 0;
+        int opcion;
+        
 
         do { 
             System.out.println("Menu");
@@ -22,7 +23,7 @@ public class Examen {
 
             switch (opcion) {
                 case 1:
-                    System.out.print("Datos del Cliente");
+                    System.out.println("Datos del Cliente");
                     System.out.print("Nombre: ");
                     nombre = sc.nextLine();
 
@@ -56,7 +57,7 @@ public class Examen {
                         cuartos = sc.nextInt();
                     } while (cuartos <= 1 || cuartos >= 5);
                     for (int i = 1; i <= cuartos; i++) {
-                        System.out.print("Cuarto" + i + "");
+                        System.out.print("Cuarto" + i + "---");
 
                         System.out.print("Largo: ");
                         double largo = sc.nextDouble();
@@ -88,12 +89,14 @@ public class Examen {
                                 nombrePiso = "Acrilico";
                                 break;
                             default:
-                                System.out.println("Opcion no valida");
+                                System.out.println("Tipo de piso no valido");
+                                
                         }
                         
                         double costo = area * precio;
                         total += costo;
-
+                        
+                        System.out.println("Tipo de piso: " + nombrePiso);
                         System.out.println("Costo del cuarto: $" + costo);
                     }
                     break;
