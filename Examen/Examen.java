@@ -76,6 +76,7 @@ public class Examen {
                         System.out.println("1. Porcelanato");
                         System.out.println("2. Marmoleado");
                         System.out.println("3. Acrilico");
+                        
                         int tipo = sc.nextInt();
                         double precio = 0;
                         String nombrePiso = "";
@@ -113,7 +114,7 @@ public class Examen {
                         System.out.println("Primero ingrese sus datos");
                         break;
                     }
-                    
+
                     if (total == 0) {
                         System.out.println("No se han ingresado datos de los cuartos");
                         break;
@@ -151,6 +152,7 @@ public class Examen {
                     System.out.println("Opcion no valida");
             }
         } while (opcion != 5);
+         
         sc.close();
     }
 }
