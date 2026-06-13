@@ -3,7 +3,6 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-
 public class Principal {
     public static void escribirPersona(Persona persona, String archivo) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo))) {
